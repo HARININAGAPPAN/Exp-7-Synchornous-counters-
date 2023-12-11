@@ -46,43 +46,65 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+1.Set the input as clock.
 
+2.Register the output of 4 bit.
 
+3.Use Posedge on the input clock.
 
+4.For Up counter use AND and OR gates to declare the value of each bit.
+
+5.For Down counter use AND, OR and NOT gates to declare the value of each bit.
+
+6.End the module.
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: Harini N
+RegisterNumber: 23013709 
 */
-
-
-
-
-
-
-### RTL LOGIC UP COUNTER AND DOWN COUNTER  
-
-
-
-
-
-
-
-
-
-### TIMING DIGRAMS FOR COUNTER  
-
-
-
-
-
+```
+module upcounter1(clk,A);
+input clk;
+output reg [0:3]A;
+always@(posedge clk)
+begin
+A[0]=((A[1])&(A[2])&(A[3]))^A[0];
+A[1]=((A[2])&(A[3]))^A[1];
+A[2]=((A[3]))^A[2];
+A[3]=1^A[3];
+end 
+endmodule
+```
+```
+module downcounter(clk,A);
+input clk;
+output reg [0:3]A;
+always@(posedge clk)
+begin
+A[0]=((~A[1])&(~A[2])&(~A[3]))^A[0];
+A[1]=((~A[2])&(~A[3]))^A[1];
+A[2]=((~A[3]))^A[2];
+A[3]=1^A[3];
+end
+endmodule
+```
+### RTL LOGIC UP COUNTER AND DOWN COUNTER:
+# UP COUNTER:
+![Screenshot 2023-12-11 173431](https://github.com/HARININAGAPPAN/Exp-7-Synchornous-counters-/assets/147473910/f92509cb-8b78-4ea2-9e43-9dddda659f13)
+# DOWN COUNTER:
+![Screenshot 2023-12-11 173523](https://github.com/HARININAGAPPAN/Exp-7-Synchornous-counters-/assets/147473910/2d66728a-207a-4bb4-ba5e-475c939ad928)
+### TIMING DIGRAMS FOR COUNTER
+# UP COUNTER:
+![Screenshot 2023-12-11 173710](https://github.com/HARININAGAPPAN/Exp-7-Synchornous-counters-/assets/147473910/ae31ea8b-4067-4144-af4a-7ade65c665c9)
+# DOWN COUNTER:
+![Screenshot 2023-12-11 173829](https://github.com/HARININAGAPPAN/Exp-7-Synchornous-counters-/assets/147473910/41e99654-d393-44c4-9d4c-0965d970d434)
 ### TRUTH TABLE 
-
-
-
-
-
-
+# UP COUNTER:
+![Screenshot 2023-12-11 173957](https://github.com/HARININAGAPPAN/Exp-7-Synchornous-counters-/assets/147473910/2dd72be4-9ffa-4898-9e93-5c17ee1525db)
+# DOWN COUNTER:
+![Screenshot 2023-12-11 174057](https://github.com/HARININAGAPPAN/Exp-7-Synchornous-counters-/assets/147473910/cd206ef5-8322-4b9b-9a9b-5ddbc0197327)
 ### RESULTS 
+Thus the program has been edxecuted successfully.
+
+
